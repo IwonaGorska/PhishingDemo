@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition/>
+        <conditional>false</conditional>
+        <name>Generate fake phishing</name>
+        <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period>1970-04-01 00:00:00</run_period>
+        <run_start>2020-11-26 14:05:06</run_start>
+        <run_time>1970-01-01 08:00:00</run_time>
+        <run_type>daily</run_type>
+        <script><![CDATA[var eventName = 'x_401576_phishing.fake_required';
+var userId;
+var userName;
+//1 - choose random user
+var grUser = new GlideRecord('sys_user');
+grUser.query();
+var usersNr = grUser.getRowCount();
+var randomNr = Math.floor(Math.random() * usersNr) + 1;
+var counter = 1;
+while(grUser.next()){
+  if(counter == randomNr){
+    userId = grUser.sys_id + '';
+	userName = grUser.name + '';
+    break;
+  }
+  counter++;  
+}
+
+//2 - check if this event has been created for that user during last 2 months
+var wasCreated = false;
+var grEvent = new GlideRecord('sysevent');
+grEvent.addQuery('sys_created_onONLast 60 days@javascript:gs.beginningOfLast60Days()@javascript:gs.endOfLast60Days()');
+grEvent.addQuery('name', eventName);
+grEvent.addQuery('parm1', user);
+grEvent.query();
+if(grEvent.next()){
+  wasCreated = true;
+}
+/*
+Security restricted: Read operation against 'sysevent' from scope 'x_401576_phishing' has been refused due to the table's cross-scope access policy
+x_401576_phishing: 0
+- this error forced me to check "Can read" in "Applications access" for table 'sysevent'
+*/
+
+//3 - if the event was not created for them in that period, create it now
+if(!wasCreated)
+	gs.eventQueue(eventName, current, userId, userName);]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-26 14:10:58</sys_created_on>
+        <sys_id>4deff550dbbc2010542c8a1848961982</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_name>Generate fake phishing</sys_name>
+        <sys_package display_value="Phishing" source="x_401576_phishing">c4e5b80cdb702010542c8a18489619bf</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Phishing">c4e5b80cdb702010542c8a18489619bf</sys_scope>
+        <sys_update_name>sysauto_script_4deff550dbbc2010542c8a1848961982</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-26 22:14:11</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

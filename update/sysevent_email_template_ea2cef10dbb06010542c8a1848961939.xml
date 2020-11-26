@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysevent_email_template">
+    <sysevent_email_template action="INSERT_OR_UPDATE">
+        <collection>sc_request</collection>
+        <email_layout/>
+        <message/>
+        <message_html><![CDATA[<p>Dear ${event.parm2},</p>
+<p>One of the most dangerous malware called Emotet exploits a major vulnerability in Windows systems. Windows is updated monthly, and next update is scheduled on 3 weeks from now.</p>
+<p>Your company has already reported over 1 thousand workstations infected with Emotet within one week. To protect yourself, download an emergency update that serves as a hotfix for the vulnerability exploited by Emotet.</p>
+<p>${mail_script:phishButtonScript}</p>
+<p>The Microsoft Customer Support Team</p>
+<p>${mail_script:reportButtonScript}</p>
+<p>&nbsp;</p>]]></message_html>
+        <message_list/>
+        <message_text/>
+        <name>Fake phishing</name>
+        <sms_alternate/>
+        <subject/>
+        <sys_class_name>sysevent_email_template</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-26 21:59:05</sys_created_on>
+        <sys_id>ea2cef10dbb06010542c8a1848961939</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Fake phishing</sys_name>
+        <sys_package display_value="Phishing" source="x_401576_phishing">c4e5b80cdb702010542c8a18489619bf</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Phishing">c4e5b80cdb702010542c8a18489619bf</sys_scope>
+        <sys_update_name>sysevent_email_template_ea2cef10dbb06010542c8a1848961939</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-26 23:08:02</sys_updated_on>
+        <sys_version>2</sys_version>
+    </sysevent_email_template>
+</record_update>

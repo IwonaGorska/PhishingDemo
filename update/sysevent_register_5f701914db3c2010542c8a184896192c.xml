@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysevent_register">
+    <sysevent_register action="INSERT_OR_UPDATE">
+        <caller_access/>
+        <description/>
+        <event_name>x_401576_phishing.casual_required</event_name>
+        <fired_by>scheduled script execution "Generate casual phishing"</fired_by>
+        <queue/>
+        <suffix>casual_required</suffix>
+        <sys_class_name>sysevent_register</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-26 10:41:06</sys_created_on>
+        <sys_id>5f701914db3c2010542c8a184896192c</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>x_401576_phishing.casual_required</sys_name>
+        <sys_package display_value="Phishing" source="x_401576_phishing">c4e5b80cdb702010542c8a18489619bf</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Phishing">c4e5b80cdb702010542c8a18489619bf</sys_scope>
+        <sys_update_name>sysevent_register_5f701914db3c2010542c8a184896192c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-26 21:42:26</sys_updated_on>
+        <table/>
+    </sysevent_register>
+</record_update>
